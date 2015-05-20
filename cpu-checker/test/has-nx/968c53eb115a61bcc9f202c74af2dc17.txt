@@ -1,0 +1,20 @@
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 15
+model		: 107
+model name	: AMD Athlon(tm) 64 X2 Dual Core Processor 4800+
+stepping	: 1
+cpu MHz		: 2501.224
+cache size	: 512 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 1
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx fxsr_opt lm 3dnowext 3dnow up lahf_lm
+bogomips	: 5002.44
+clflush size	: 64
+power management:

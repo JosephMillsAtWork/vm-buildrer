@@ -1,0 +1,143 @@
+#!/bin/sh
+# Copyright (C) 2009-2010 Canonical, Ltd.
+# License: GPLv3
+# Authors:
+#  Kees Cook <kees@ubuntu.com>
+#  Steve Beattie <steve.beattie@canonical.com>
+#  Jamie Strandboge <jamie@ubuntu.com>
+#
+# Attempts to determine if the running x86-based CPU has NX capabilities
+# (regardless of it being disabled by the BIOS).  If the CPU is NX-capable
+# but the nx bit is missing from flags, exit 1 (i.e. "BIOS settings need
+# changing"), otherwise exit 0 (i.e. "nothing wrong with BIOS")
+#
+# lacks NX:
+#     not pae:
+#         cpu family <= 5
+#         cpu family > 6 && cpu family < 15
+#         cpu family == 6, model <= 12
+#     pae, cpu family == 6, model == 13  (excepting some sSpec?)
+#             http://processorfinder.intel.com/List.aspx?ParentRadio=All&ProcFam=942&SearchKey=
+# has NX:
+#     http://processorfinder.intel.com/Default.aspx
+#     pae, cpu family == 6, model >= 14
+#     pae, cpu family == 15, model >= 4
+#     pae, cpu family > 15
+#
+# variable chance of NX:
+#     pae, cpu family == 15, model == 3  (and some ==4! arrgh)
+#         many of these seem to have NX, but there have been several
+#         that do not.  For now, err on the side of warning about the lack
+#         of NX.
+#
+# Thanks to Steve and Jamie for the awk and shell overhaul!
+set -e
+export LANG=C
+
+usage() {
+    echo "Usage: $0 [options]"
+    echo ""
+    echo "Options:"
+    echo "  -h, --help  show this help message and exit"
+    echo "  --verbose   Explain in detail what has been detected"
+}
+
+VERBOSE=
+
+TEMP=$(getopt -o h --long verbose,help -n check-bios-nx -- "$@")
+eval set -- "$TEMP"
+
+while :; do
+    case "$1" in
+        -h|--help) usage ; exit 0 ;;
+        --verbose) VERBOSE=1; shift ;;
+        --) shift ; break ;;
+        *) usage >&2 ; exit 2 ;;
+    esac
+done
+
+export VERBOSE
+awk -f -  ${CHECK_BIOS_NX_CPUINFO:-/proc/cpuinfo} <<EOF
+function verbose(message)
+{
+    if (length(ENVIRON["VERBOSE"]) != 0)
+        print message > "/dev/stderr"
+}
+
+BEGIN {
+    arch = ENVIRON["CHECK_BIOS_NX_MACHINE"]
+    if (length(arch) == 0) {
+        "uname -m" | getline arch
+    }
+
+    if (match(arch, "^(i.86|x86_64)$") == 0) {
+        verbose("This script is currently only useful on x86-based CPUs")
+        skip_end = 1
+        exit(0)
+    }
+
+    FS=": "
+    family = -1
+    model = -1
+    flags = ""
+
+    has_nx = 0
+    has_pae = 0
+}
+
+family == -1 && /^cpu family\t/ { family = \$2 }
+model  == -1 && /^model\t/      { model  = \$2 }
+flags  == "" && /^flags\t/      { flags  = \$2 }
+
+END {
+
+    if (skip_end == 1)
+        exit(0)
+
+    if (flags == "") {
+        # No flags found (?!), fail open
+        verbose("No 'flags' were found for this CPU.  Check /proc/cpuinfo contents.")
+        exit(1)
+    }
+    split(flags, cpuflags, " ")
+    for (i in cpuflags) {
+        if (cpuflags[i] ~ /^pae$/)
+            has_pae = 1
+        if (cpuflags[i] ~ /^nx$/)
+            has_nx = 1
+    }
+
+    if (has_nx) {
+        # If it's in the flags, it's not being disabled by the BIOS; rejoice.
+        verbose("This CPU has nx in the flags, so the BIOS is not disabling it.")
+        exit(0)
+    }
+
+    if (has_pae == 0) {
+        # No PAE, correct to lack nx
+        verbose("This CPU is not PAE capable, so it does not have NX.")
+        exit(0)
+    }
+
+    if (family == -1 || model == -1) {
+        # Cannot identify CPU, fail open
+        verbose("No model or family were found for this CPU.  Check /proc/cpuinfo")
+        exit(1)
+    }
+
+    if ((family == 6) && (model >= 14) ||
+        (family == 15) && (model >= 3) ||
+        (family > 15)) {
+        # NX should be available in CPU, but missing from flags
+        verbose(sprintf("This CPU is family %s, model %s, and has NX capabilities but is unable to", family, model))
+            verbose("use these protective features because the BIOS may be configured to disable")
+        verbose("the capability.  Please enable this in your BIOS.  For more details, see:")
+        verbose("https://wiki.ubuntu.com/Security/CPUFeatures")
+        exit 1
+    }
+
+    # NX not available in CPU
+    verbose(sprintf("This CPU is family %s, model %s, and does not have NX capabilities.", family, model))
+    exit(0)
+}
+EOF

@@ -1,0 +1,20 @@
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 5
+model		: 9
+model name	: AMD-K6(tm) 3D+ Processor
+stepping	: 1
+cpu MHz		: 451.103
+cache size	: 256 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 1
+wp		: yes
+flags		: fpu vme de pse tsc msr cx8 pge mmx syscall 3dnow k6_mtrr up
+bogomips	: 902.20
+clflush size	: 32
+power management:

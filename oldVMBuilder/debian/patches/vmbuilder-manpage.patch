@@ -1,0 +1,23 @@
+--- vmbuilder.orig/vmbuilder.1
++++ vmbuilder/vmbuilder.1
+@@ -5,9 +5,9 @@
+ .B vmbuilder <hypervisor> <distro> 
+ [\fIOPTIONS\fR]...
+ .TP
+-<hypervisor>  Hypervisor image format. Valid options: xen kvm vmw6 vmserver
++<hypervisor>  Hypervisor image format. Valid options: xen kvm vbox vmw6 vmserver
+ .TP
+-<distro>      Distribution. Valid options: ubuntu
++<distro>      Distribution. Valid options: ubuntu etch lenny
+ .SH DESCRIPTION
+ This manual page documents the
+ .B vmbuilder
+@@ -20,7 +20,7 @@
+ .TP
+ .B NOTE:
+ Only common basic options are described here.  Many options can be added through plugins and others, they depends on the hypervisor and distro you specify.  Please use
+-.B vmbuilder <hypervisor> <distro> --help
++.B vmbuilder [<hypervisor> <distro>] --help
+ for a full options list.
+ .TP
+ .B \-h, \-\-help            

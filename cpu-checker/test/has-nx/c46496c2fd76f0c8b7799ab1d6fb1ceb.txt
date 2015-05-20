@@ -1,0 +1,41 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     T9300  @ 2.50GHz
+stepping	: 6
+cpu MHz		: 2493.000
+cache size	: 6144 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss nx constant_tsc arch_perfmon pebs bts tsc_reliable pni ssse3 sse4_1 hypervisor ida
+bogomips	: 4986.00
+clflush size	: 64
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     T9300  @ 2.50GHz
+stepping	: 6
+cpu MHz		: 2493.000
+cache size	: 6144 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss nx constant_tsc arch_perfmon pebs bts tsc_reliable pni ssse3 sse4_1 hypervisor ida
+bogomips	: 5015.71
+clflush size	: 64
+power management:

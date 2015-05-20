@@ -1,0 +1,69 @@
+cpu-checker (0.7-0ubuntu1.1) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * building on debian
+
+ -- Joseph Mills <josephjamesmills@gmail.com>  Sun, 17 May 2015 13:58:08 -0600
+
+cpu-checker (0.7-0ubuntu1) precise; urgency=low
+
+  [ Colin Watson ]
+  * debian/control: mark as "Architecture: amd64 i386", since this package
+    is uninstallable on all other architectures (LP: #888087).
+
+  [ Kees Cook ]
+  * debian/control: fix VCS fields (LP: #888082).
+
+ -- Kees Cook <kees@ubuntu.com>  Fri, 18 Nov 2011 10:11:52 -0800
+
+cpu-checker (0.6-0ubuntu1) oneiric; urgency=low
+
+  * kvm-ok: LP: #843972
+    - fix conflicting, misleading messages and erroneous verdict
+
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Thu, 08 Sep 2011 14:31:19 -0700
+
+cpu-checker (0.5-0ubuntu1) natty; urgency=low
+
+  * kvm-ok: need to || true the statement that tests for kvm, as error
+    conditions are detected below, and helpful messages are displayed;
+    LP: #741080
+
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Wed, 23 Mar 2011 13:59:51 -0500
+
+cpu-checker (0.4-0ubuntu1) natty; urgency=low
+
+  * kvm-ok: fix $id bug; update brand detection; ensure that the
+    root/msr stuff gets run
+
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Sun, 27 Feb 2011 06:47:49 -0600
+
+cpu-checker (0.3-0ubuntu1) natty; urgency=low
+
+  * kvm-ok: exit informatively if we are not root before doing MSR
+    checks; allows kvm-ok to continue being useful, even if not running
+    as root, LP: #717342
+  * kvm-ok.1: document the new MSR check
+
+ -- Dustin Kirkland <kirkland@ubuntu.com>  Sat, 26 Feb 2011 18:15:25 -0600
+
+cpu-checker (0.2-0ubuntu1) natty; urgency=low
+
+  * kvm-ok: replace dmesg review with MSR tests.
+  * check-bios-nx: replace model/family heuristic with MSR test.
+  * Makefile: drop test suite, since it only applied to heuristics.
+
+ -- Kees Cook <kees@ubuntu.com>  Wed, 17 Nov 2010 11:11:24 -0800
+
+cpu-checker (0.1-0ubuntu2) lucid; urgency=low
+
+  * modify the modprobe HINT so it can be used (LP: #537674)
+
+ -- Brian Murray <brian@ubuntu.com>  Thu, 18 Mar 2010 10:26:18 -0700
+
+cpu-checker (0.1-0ubuntu1) lucid; urgency=low
+
+  * Initial release for utilities that used to live in qemu-kvm and
+    update-notifier.
+
+ -- Kees Cook <kees@ubuntu.com>  Tue, 09 Mar 2010 13:40:55 -0800

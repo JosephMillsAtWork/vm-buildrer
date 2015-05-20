@@ -1,0 +1,48 @@
+# Fully parallel tests!
+
+export CHECK_BIOS_NX=./check-bios-nx-heuristic
+
+BASEDIR=test
+
+WRONG_CPUINFOS=$(wildcard $(BASEDIR)/wrong-cpu/*.txt)
+WRONG_TESTS=$(patsubst %.txt,%.out,$(WRONG_CPUINFOS))
+BUSTED_CPUINFOS=$(wildcard $(BASEDIR)/busted-flags/*.txt)
+BUSTED_TESTS=$(patsubst %.txt,%.out,$(BUSTED_CPUINFOS))
+EXPECTED_CPUINFOS=$(wildcard $(BASEDIR)/expected-no-nx/*.txt)
+EXPECTED_TESTS=$(patsubst %.txt,%.out,$(EXPECTED_CPUINFOS))
+NX_CPUINFOS=$(wildcard $(BASEDIR)/has-nx/*.txt)
+NX_TESTS=$(patsubst %.txt,%.out,$(NX_CPUINFOS))
+NEED_CPUINFOS=$(wildcard $(BASEDIR)/needs-nx/*.txt)
+NEED_TESTS=$(patsubst %.txt,%.out,$(NEED_CPUINFOS))
+PAELESS_CPUINFOS=$(wildcard $(BASEDIR)/no-pae/*.txt)
+PAELESS_TESTS=$(patsubst %.txt,%.out,$(PAELESS_CPUINFOS))
+
+check: $(WRONG_TESTS) $(BUSTED_TESTS) $(EXPECTED_TESTS) \
+	$(NX_TESTS) $(NEED_TESTS) $(PAELESS_TESTS)
+
+%.out: %.txt
+	@echo $<
+	@export TEXT="$$(cat $(dir $<)test.match)" ; \
+	[ -n "$$TEXT" ] || exit 1; \
+	export ARCHS="$$(cat $(dir $<)test.archs)" ; \
+	[ -n "$$ARCHS" ] || exit 1; \
+	export EXIT="$$(cat $(dir $<)test.exit)" ; \
+	[ -n "$$EXIT" ] || exit 1; \
+	for arch in $$ARCHS; do \
+		export CHECK_BIOS_NX_MACHINE=$$arch; \
+		export CHECK_BIOS_NX_CPUINFO=$<; \
+		REPORT=$$($$CHECK_BIOS_NX --verbose 2>&1); \
+		ret=$$? ; \
+		[ $$ret -ne $$EXIT ] && \
+		{ echo "'CHECK_BIOS_NX_MACHINE=$$arch CHECK_BIOS_NX_CPUINFO=$< $$CHECK_BIOS_NX --verbose' had exit code $$ret instead of expected $$EXIT"; \
+			exit 1; }; \
+		echo "$$REPORT" | grep -q "$$TEXT" || \
+		{ echo "'CHECK_BIOS_NX_MACHINE=$$arch CHECK_BIOS_NX_CPUINFO=$< $$CHECK_BIOS_NX --verbose' failed to report '$$TEXT'"; \
+			exit 1; }; \
+		$$CHECK_BIOS_NX 2>&1 | grep -q '.' && \
+		{ echo "$< ($$arch) reported something without --verbose"; \
+			exit 1; }; \
+		exit 0; \
+	done
+
+.PHONY: check

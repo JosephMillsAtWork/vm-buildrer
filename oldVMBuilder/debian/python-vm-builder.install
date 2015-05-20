@@ -1,0 +1,13 @@
+debian/tmp/etc
+debian/tmp/usr/bin/vmbuilder
+debian/tmp/usr/lib/python*/*-packages/VMBuilder/*.py
+debian/tmp/usr/lib/python*/*-packages/VMBuilder/plugins/*.py
+debian/tmp/usr/lib/python*/*-packages/VMBuilder/plugins/cli
+debian/tmp/usr/lib/python*/*-packages/VMBuilder/plugins/debian
+debian/tmp/usr/lib/python*/*-packages/VMBuilder/plugins/firstscripts
+debian/tmp/usr/lib/python*/*-packages/VMBuilder/plugins/kvm
+debian/tmp/usr/lib/python*/*-packages/VMBuilder/plugins/libvirt
+debian/tmp/usr/lib/python*/*-packages/VMBuilder/plugins/postinst
+debian/tmp/usr/lib/python*/*-packages/VMBuilder/plugins/ubuntu
+debian/tmp/usr/lib/python*/*-packages/VMBuilder/plugins/xen
+debian/tmp/usr/lib/python*/*-packages/VMBuilder/plugins/vmware

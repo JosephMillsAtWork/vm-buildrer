@@ -1,0 +1,20 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 14
+model name	: Intel(R) Celeron(R) M CPU        430  @ 1.73GHz
+stepping	: 8
+cpu MHz		: 1733.157
+cache size	: 1024 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat clflush dts acpi mmx fxsr sse sse2 ss tm pbe nx constant_tsc up arch_perfmon bts pni monitor tm2 xtpr pdcm
+bogomips	: 3466.31
+clflush size	: 64
+power management:

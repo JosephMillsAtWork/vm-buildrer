@@ -1,0 +1,8 @@
+Title: BIOS Setting Recommendation
+Name: XD (eXecute Disable) needs to be enabled in BIOS
+DisplayIf: /usr/lib/update-notifier/check-bios-nx
+Description: Your CPU appears to have the ability to help protect Ubuntu against certain
+ kinds of security vulnerability exploits.  However, this feature has been
+ disabled in your BIOS.  When you reboot next, please look for the "CPU XD
+ Support" or "Execute Disable Bit" setting under "Security" or "CPU Features"
+ and enable it.

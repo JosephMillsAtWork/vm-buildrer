@@ -1,0 +1,20 @@
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 15
+model		: 72
+model name	: AMD Turion(tm) 64 X2 Mobile Technology TL-60
+stepping	: 2
+cpu MHz		: 2009.108
+cache size	: 512 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 1
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx mmxext fxsr_opt rdtscp lm 3dnowext 3dnow constant_tsc up tsc_reliable pni cx16 hypervisor lahf_lm extapic
+bogomips	: 4018.21
+clflush size	: 64
+power management: ts fid vid ttp tm stc

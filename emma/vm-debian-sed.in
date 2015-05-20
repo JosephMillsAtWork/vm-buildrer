@@ -1,0 +1,25 @@
+#!/bin/bash
+
+sudo debian-vm-builder VIRTTYPE CODENAME \
+    --domain DOMAINNAME  \
+    --dest DOMAINNAME  \
+    --hostname DOMAINNAME  \
+    --arch ARCH \
+    --mem MEM \
+    --cpus CPUS \
+    --user joseph \
+    --pass smile \
+    --bridge br0 \
+    --ip EXT \
+    --mask 255.255.255.0 \
+    --net 192.168.1.0 \
+    --bcast 192.168.1.255 \
+    --gw 192.168.1.1 \
+    --dns 8.8.8.8 \
+    --components main,contrib,non-free \
+    --addpkg acpid \
+    --addpkg openssh-server \
+    --addpkg linux-image-generic \
+    --addpkg nano \
+    --libvirt qemu:///system ;
+

@@ -1,0 +1,32 @@
+processor	: 0
+cpu family	: PA-RISC 2.0
+cpu		: PA8700 (PCX-W2)
+cpu MHz		: 750.000000
+model		: 9000/785/J6700
+model name	: Duet W2
+hversion	: 0x00005dd0
+sversion	: 0x00000491
+I-cache		: 768 KB
+D-cache		: 1536 KB (WB, direct mapped)
+ITLB entries	: 240
+DTLB entries	: 240 - shared with ITLB
+BTLB		: not supported
+bogomips	: 1495.04
+software id	: 2006980274
+
+processor	: 1
+cpu family	: PA-RISC 2.0
+cpu		: PA8700 (PCX-W2)
+cpu MHz		: 750.000000
+model		: 9000/785/J6700
+model name	: Duet W2
+hversion	: 0x00005dd0
+sversion	: 0x00000491
+I-cache		: 768 KB
+D-cache		: 1536 KB (WB, direct mapped)
+ITLB entries	: 240
+DTLB entries	: 240 - shared with ITLB
+BTLB		: not supported
+bogomips	: 1495.04
+software id	: 2006980274
+

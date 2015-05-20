@@ -1,0 +1,303 @@
+#!/bin/bash
+
+## check to make sure that whiptail is installed
+wT=$(which whiptail)
+codeName=""
+dist=""
+virtType=""
+arch=""
+extIp=""
+cpus=""
+mem=""
+domain=""
+
+if [ -z $wT ];
+then
+	echo "whiptail must be installed to use this application"
+	echo "installing now"
+	sudo apt-get -y --force-yes install whiptail;
+fi
+
+
+exitDialog(){
+whiptail --title "Emma Builder" --yesno "Are you sure that you want to exit emma builder ? " 8 78
+	if [ $? == 1 ];
+	then
+		mainMenu
+	else
+		exit 0;
+	fi
+
+}
+
+menuChecker(){
+	if [ $1 == 1 ];
+	then
+		echo "1 joseph $1"
+		mainMenu
+	else
+		echo    "not one $1 "
+		mainMenu
+	fi
+}
+
+
+help(){
+cat << EOF
+------------------------------------------------------------------
+	Welcome to Emma The Ubuntu and Debian Virtual Builder
+------------------------------------------------------------------
+
+    There is no options for this application just run on its own please
+EOF
+}
+
+getDistro(){
+	distName=$(whiptail --title "Emma Builder" --menu "Pick a Distrobution that you would like to use" 18 90 10 "Debian" "the universal operating system" "Ubuntu" "Humanity to others" 3>&1 1>&2 2>&3 )
+	setDistro;
+}
+setDistro(){
+case $distName in
+	Ubuntu)
+		dist="ubuntu"
+		menuChecker $?
+	;;
+	Debian)
+		dist="debian"
+
+		if [ $? == 1  ];
+		then
+			echo "  whta tht what  $?"
+			menuChecker $?
+		else
+		#	mainMenu;
+			echo "cancled ? $? "
+		fi
+	;;
+esac
+}
+
+
+setDomainName(){
+	domain=""
+	domain=$1
+}
+
+getDomainName(){
+	dN=$(whiptail --inputbox "Please Enter in the Name of the virtual machine \nIf you are using this for a web site maybe you want to name it the sites FQDN\n This will also be the name of the script that is run to make the VM" 15 80 something.com --title  "Emma Builder"  3>&1 1>&2 2>&3);
+	setDomainName $dN
+}
+
+setVirtType(){
+	virtType=""
+	virtType=$1
+}
+getVirtType(){
+	vName=$(whiptail --title "Emma Builder" --menu "Pick a virtualization type" 18 90 10 "kvm" "recommended" "vm6" "VM6 virtualization" "vmserver" "VMware"  "vbox" "Virtual box" "qemu" "Qemu virtualization" 3>&1 1>&2 2>&3 )
+	setVirtType $vName
+}
+
+
+
+setDistroVersion(){
+	codeName=""
+        codeName=$1
+}
+getDistroVersion(){
+	if [ -z $distro ];
+	then
+		whiptail --title "Emma Builder" --msgbox "You Must 1st set the Distro that you would like to use" 8 78
+		getDistro
+	else
+		if [ distro == "ubuntu" ];
+		then
+			cName=$(whiptail --title "Emma Builder" --menu "Pick a versions for Ubuntu" 18 90 10 "trusty" "14.04LTS" "precise" "12.04LTS"  3>&1 1>&2 2>&3 )
+			setDistroName $cName
+		else
+		        coName=$(whiptail --title "Emma Builder" --menu "Pick a versions for Debian" 18 90 10 "wheezy" "old-stable" "jessie" "stable" "sid" "unstable" "streech" "testing"  3>&1 1>&2 2>&3 )
+			setDistroType $coName
+		fi
+	fi
+	setDistroVersion $di
+}
+
+setArch(){
+	arch=""
+	arch=$1
+}
+
+getArch(){
+	archName=$(whiptail --title "Emma Builder" --menu "Please pick a arch that ypou would like to use" 18 90 10 "i386" "A 32bit system" "amd64" "A 64 bit system" "armhf" "A Arm system (32 bit)" 3>&1 1>&2 2>&3 )
+	setArch $archName
+}
+
+setMemory(){
+	mem=""
+ 	mem=$1
+}
+getMemory(){
+        memS=$(whiptail --inputbox "Please Enter in the ammount of Memory that you would like to give to this VM\n this is in MegaBytes" 15 80 512 --title  "Emma Builder"  3>&1 1>&2 2>&3);
+        setMem $memS
+}
+
+## cpu Setters and getters
+setCpus(){
+	cpus=""
+        cpus=$1;
+}
+getCpus(){
+        cpu=$(whiptail --inputbox "Please Enter in the ammount of cpu's that you would like to give to this VM" 15 80 1 --title  "Emma Builder"  3>&1 1>&2 2>&3);
+	setCpus $cpu
+}
+
+#Ip address geters and setters
+setIpAddress(){
+	extIp=""
+        extIp=$1
+}
+getIpAddress(){
+	ipadd=$(whiptail --inputbox "Please Enter in the ip address that you would like to use for this machine " 15 80 192.168.1.161 --title  "Emma Builder"  3>&1 1>&2 2>&3);
+	setIpAddress ipadd
+}
+
+mainMenu(){
+## main menu
+        menu=$(whiptail --title "Emma Builder" --menu "Main Menu" 18 90 10 "Distro" "pick the linux distro you would like to build " "DomainName" "Set the domain name of this KVM " "VirtType" "Pick the Virt type (vmw6, vmserver, vbox, qemu Or kvm)" "Cpus" "set Cpu limit" "Memory" "Set the memory usage linit" "IpAddress " "Set the ip address of the VM" "Arch"  "set the arch of the VM (amd64, i386, armhf)" "DistroVersion" "Set the version of the distro's (trusty, jessie, ect)" 3>&1 1>&2 2>&3 )
+        setMenu $menu
+}
+
+
+setMenu(){
+case $1 in
+        Distro)
+                getDistro;
+        ;;
+        DomainName)
+                getDomainName;
+        ;;
+        VirtType)
+                getVirtType;
+        ;;
+        DistroVersion)
+                getDistroVersion;
+        ;;
+        Arch)
+                getArch;
+        ;;
+        Memory)
+                getMemory;
+        ;;
+        Cpus)
+                getCpus;
+        ;;
+        IpAddress)
+                getIpAddress;
+        ;;
+        *)
+                #echo "Did not understand that option Here is the exit code $?"
+		i=$?
+		if [ $i == 1 ] || [ $i == 255 ];
+		then
+			echo "This is a exit statement"
+			exitDialog;
+		else
+                	echo "Non Exit ?  $i"
+			#mainMenu
+		fi
+        ;;
+esac
+}
+
+runtime(){
+        echo "Ok you are all set up to run your new script $domain"
+        echo "Or you can modify it more if you like"
+        echo "what would yoiu like to do ?"
+        echo " [ Mod | Run | Cancel ]"
+        read op;
+}
+
+writerError(){
+	echo "You must enter in the $1"
+	menu;
+}
+
+writer(){
+
+## check to make sure that all things are set
+if [ -z $codeName ];
+then
+	 writerError "Code Name"
+elif [ -z $dist ];
+then
+	writerError "Distro"
+elif [ -z $$virtType ];
+then
+	writerError "VirtType"
+elif [ -z $arch ];
+then
+	writerError "Arch"
+elif [ -z $extIp ];
+then
+	writerError "ip Address"
+elif [ -z $cpus ];
+then
+	writerError "Cpu Ammount"
+elif [ -z $mem ];
+then
+	writerError "Memory"
+elif [ -z $domain ];
+then
+	writerError "Machine Name"
+else
+## this function makes the script for building the VM.
+## make the file to run and change its permissions
+touch $domain
+chmod +x $domain
+
+## cat out the new domain file from our templete
+cat -vm-$dist-sed.in > $domain
+
+
+## run sed on the pre made vars;
+sed -i "s|$domain|DOMAINNAME|g"  $domain
+sed -i "s|$virtType|VIRTTYPE|g"  $domain
+sed -i "s|$codeName|CODENAME|g"  $domain
+sed -i "s|$arch|ARCH|g"  $domain
+sed -i "s|$cpus|CPUS|g"  $domain
+sed -i "s|$mem|MEM|g"  $domain
+sed -i "s|$extIp|EXT|g"  $domain
+
+## Finsihed
+## ask simple questions about running or editing ect
+runTime;
+case $op in
+	Mod|MOD|mod|m)
+		nano $domain;
+	;;
+	Run|r|RUN|run)
+		echo "Ok Building a new VM"
+		./$domain
+	;;
+	Cancel|cancel|c)
+		echo "Ok Exiting"
+		exit 1;
+	;;
+	*)
+		echo "That is not a vaild option"
+		runTime;
+	;;
+esac
+fi
+}
+
+checker(){
+	if [ ! -z $1 ];
+	then
+		help;
+	else
+		mainMenu;
+	fi
+}
+checker $1;
+
+

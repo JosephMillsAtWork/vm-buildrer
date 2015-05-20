@@ -1,0 +1,9 @@
+include VMBuilder/plugins/*/templates/*.tmpl
+include AUTHORS
+include NEWS
+include examples/*
+include debian-vm-builder
+include debian-vm-builder.1
+include ubuntu-vm-builder
+include ubuntu-vm-builder.1
+include vmbuilder.1

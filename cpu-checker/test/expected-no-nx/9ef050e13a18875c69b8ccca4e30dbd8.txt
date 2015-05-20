@@ -1,0 +1,41 @@
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 6
+model		: 10
+model name	: Unknown CPU Type
+stepping	: 0
+cpu MHz		: 2127.307
+cache size	: 512 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 1
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 mmx fxsr sse syscall mp mmxext 3dnowext 3dnow
+bogomips	: 4254.61
+clflush size	: 32
+power management: ts
+
+processor	: 1
+vendor_id	: AuthenticAMD
+cpu family	: 6
+model		: 10
+model name	: Unknown CPU Type
+stepping	: 0
+cpu MHz		: 2127.307
+cache size	: 512 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 1
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 mmx fxsr sse syscall mp mmxext 3dnowext 3dnow
+bogomips	: 4254.97
+clflush size	: 32
+power management: ts fid vid

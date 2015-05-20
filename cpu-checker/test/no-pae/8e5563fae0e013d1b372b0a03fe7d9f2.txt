@@ -1,0 +1,20 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 15
+model		: 2
+model name	: Intel(R) Pentium(R) 4 CPU 2.00GHz
+stepping	: 4
+cpu MHz		: 1979.842
+cache size	: 512 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 2
+wp		: yes
+flags		: fpu vme de pse tsc msr mce cx8 apic mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 up
+bogomips	: 3959.68
+clflush size	: 64
+power management:

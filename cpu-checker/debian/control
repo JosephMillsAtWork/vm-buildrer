@@ -1,0 +1,20 @@
+Source: cpu-checker
+Section: utils
+Priority: optional
+Maintainer: Kees Cook <kees@ubuntu.com>
+Build-Depends: debhelper (>> 7)
+Standards-Version: 3.8.4
+Homepage: https://launchpad.net/cpu-checker
+Vcs-Browser: https://code.launchpad.net/~cpu-checker-dev/cpu-checker/trunk
+Vcs-Bzr: lp:~cpu-checker-dev/cpu-checker/trunk
+
+Package: cpu-checker
+Architecture: amd64 i386
+Depends: msr-tools, ${shlibs:Depends}, ${misc:Depends}
+Conflicts: qemu-kvm (<< 0.12.3-0ubuntu13)
+Replaces: qemu-kvm (<< 0.12.3-0ubuntu13)
+Description: tools to help evaluate certain CPU (or BIOS) features
+ There are some CPU features that are filtered or disabled by system BIOSes.
+ This set of tools seeks to help identify when certain features are in this
+ state, based on kernel values, CPU flags and other conditions. Supported
+ feature tests are NX/XD and VMX/SVM.

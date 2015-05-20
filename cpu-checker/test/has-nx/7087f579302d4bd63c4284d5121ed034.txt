@@ -1,0 +1,37 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Xeon(R) CPU           E5405  @ 2.00GHz
+stepping	: 8
+cpu MHz		: 1995.020
+cache size	: 6144 KB
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss syscall nx lm constant_tsc arch_perfmon pebs bts rep_good tsc_reliable pni ds_cpl ssse3 cx16 sse4_1 lahf_lm
+bogomips	: 3990.04
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Xeon(R) CPU           E5405  @ 2.00GHz
+stepping	: 8
+cpu MHz		: 1995.020
+cache size	: 6144 KB
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss syscall nx lm constant_tsc arch_perfmon pebs bts rep_good tsc_reliable pni ds_cpl ssse3 cx16 sse4_1 lahf_lm
+bogomips	: 4015.44
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:

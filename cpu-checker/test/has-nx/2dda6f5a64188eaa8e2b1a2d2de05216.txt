@@ -1,0 +1,20 @@
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 15
+model		: 127
+model name	: AMD Athlon(tm) Processor LE-1660
+stepping	: 2
+cpu MHz		: 2812.399
+cache size	: 512 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 1
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx mmxext fxsr_opt rdtscp lm 3dnowext 3dnow up pni cx16 lahf_lm svm extapic cr8_legacy 3dnowprefetch
+bogomips	: 5624.79
+clflush size	: 64
+power management: ts fid vid ttp tm stc 100mhzsteps

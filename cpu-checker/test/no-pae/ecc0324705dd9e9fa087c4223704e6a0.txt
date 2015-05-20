@@ -1,0 +1,20 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 14
+model name	: Genuine Intel(R) CPU           T2130  @ 1.86GHz
+stepping	: 12
+cpu MHz		: 1856.809
+cache size	: 0 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr mce cx8 apic mtrr pge mca cmov clflush mmx fxsr sse sse2 constant_tsc up pni monitor
+bogomips	: 3713.61
+clflush size	: 64
+power management:

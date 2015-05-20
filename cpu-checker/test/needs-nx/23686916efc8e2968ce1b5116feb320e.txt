@@ -1,0 +1,53 @@
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     P7350  @ 2.00GHz
+stepping	: 10
+cpu MHz		: 1999.425
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat clflush mmx fxsr sse sse2 ss ht syscall lm constant_tsc arch_perfmon pni ssse3 sse4_1 lahf_lm
+bogomips	: 3998.85
+clflush size	: 64
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     P7350  @ 2.00GHz
+stepping	: 10
+cpu MHz		: 1999.425
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat clflush mmx fxsr sse sse2 ss ht syscall lm constant_tsc arch_perfmon pni ssse3 sse4_1 lahf_lm
+bogomips	: 4001.20
+clflush size	: 64
+power management:

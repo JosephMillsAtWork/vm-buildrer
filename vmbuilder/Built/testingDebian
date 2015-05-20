@@ -1,0 +1,24 @@
+#!/bin/bash
+
+sudo ../debian-vm-builder --debug -v kvm stretch \
+    --domain debianS.com \
+    --dest debianS.com \
+    --hostname debianS.com \
+    --arch amd64 \
+    --mem 1028 \
+    --cpus 1 \
+    --user mango \
+    --pass mango \
+    --bridge br0 \
+    --ip 192.168.1.164 \
+    --mask 255.255.255.0 \
+    --net 192.168.1.0 \
+    --bcast 192.168.1.255 \
+    --gw 192.168.1.1 \
+    --dns 8.8.8.8 \
+    --components main,contrib,non-free \
+    --addpkg acpid \
+    --addpkg openssh-server \
+    --addpkg nano \
+    --addpkg locales \
+    --libvirt qemu:///system ;

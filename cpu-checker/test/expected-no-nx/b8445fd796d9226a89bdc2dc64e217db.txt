@@ -1,0 +1,20 @@
+processor	: 0
+vendor_id	: GenuineTMx86
+cpu family	: 15
+model		: 2
+model name	: Transmeta Efficeon(tm) Processor TM8000
+stepping	: 4
+cpu MHz		: 833.000
+cache size	: 1024 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 1
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 ss tm mmxext longrun lrti constant_tsc up
+bogomips	: 1988.89
+clflush size	: 128
+power management:

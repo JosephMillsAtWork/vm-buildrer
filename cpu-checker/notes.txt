@@ -1,0 +1,2 @@
+Processor errata available here:
+http://www.intel.com/p/en_US/support/processors

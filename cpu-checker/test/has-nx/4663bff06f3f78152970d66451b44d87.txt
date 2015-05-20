@@ -1,0 +1,19 @@
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 4
+model name	: AMD Phenom(tm) II X4 905e Processor
+stepping	: 2
+cpu MHz		: 0.000
+cache size	: 512 KB
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 2
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx fxsr_opt rdtscp lm 3dnowext 3dnow constant_tsc up rep_good nonstop_tsc extd_apicid pni lahf_lm
+bogomips	: 4949.39
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management:

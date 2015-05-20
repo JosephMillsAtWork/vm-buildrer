@@ -1,0 +1,20 @@
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 2
+model name	: AMD Phenom(tm) 9500 Quad-Core Processor
+stepping	: 2
+cpu MHz		: 2202.101
+cache size	: 512 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 2
+wp		: yes
+flags		: fpu vme de pse tsc msr mce cx8 apic mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall fxsr_opt rdtscp 3dnowext 3dnow constant_tsc up nonstop_tsc extd_apicid pni
+bogomips	: 4404.20
+clflush size	: 64
+power management:

@@ -1,0 +1,73 @@
+#raw
+#! /usr/bin/env bash
+###############################################################################
+#
+# This script is used to create und register a new VM
+# in VirtualBox. It resides as a template in 
+# VMBuilder/plugins/virtualbox/templates/vm_deploy_script.tmpl
+#
+###############################################################################
+#end raw
+#import os
+#import os.path
+
+# exit upon error
+set -e
+
+#if $os_type == "Ubuntu"
+os_type="Ubuntu"
+#else
+os_type="Other"
+#end if
+
+disk_path="#echo os.path.abspath(os.path.dirname($vm_disks[0]))#"
+
+if VBoxManage list vms| grep -q '^"$vm_name"'; then
+	echo "Virtual image named '$vm_name' is already available. Creation skipped.";
+else
+	VBoxManage createvm -name $vm_name -ostype \$os_type -register
+fi
+
+sata=""
+if ! VBoxManage --version | grep -q "_OSE"; then sata="-sata on"; fi
+
+# FIXME: test on identity needs improvement
+#set $i = 0
+#for $disk in $vm_disks
+    #set $i = $i + 1
+    #set $disk = os.path.basename(disk)
+if VBoxManage list hdds | egrep '^Location:.*$disk\$'; then
+	echo "Disk '$disk' is already known to the system. Leaving it in original state."
+else
+	VBoxManage openmedium disk \${disk_path}/$disk -type normal
+
+	VBoxManage modifyvm $vm_name -memory $memory \${sata} #slurp
+    #if $i >= 31
+    	#continue
+    #end if
+    #if $i == 1
+-hda \${disk_path}/$disk #slurp
+    #else if $i == 2
+-hdb \${disk_path}/$disk #slurp
+    #else if $i == 3
+-hdd \${disk_path}/$disk #slurp
+    #else
+-sataport${i} \${disk_path}/$disk
+    #end if
+fi
+#end for
+
+#if $mac
+VBoxManage modifyvm $vm_name -macaddress1 $mac
+#end if
+
+#if $ip
+#if $ip == "dhcp"
+VBoxManage modifyvm $vm_name -nic1 nat
+#else
+VBoxManage modifyvm $vm_name -nic1 intnet 
+#end if
+#end if
+
+#activating PAE support for the CPU because some OS (e.g. ubuntu server ) won't boot in a virtual machine without it
+VBoxManage modifyvm $vm_name -pae on

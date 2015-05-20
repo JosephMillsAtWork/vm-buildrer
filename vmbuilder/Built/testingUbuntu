@@ -1,0 +1,25 @@
+#!/bin/bash
+
+sudo ../ubuntu-vm-builder --debug -v kvm trusty \
+    --domain testingubuntu.com \
+    --dest testingubuntu.com \
+    --hostname testingubuntu.com \
+    --arch amd64 \
+    --mem 512 \
+    --cpus 1 \
+    --user mango \
+    --pass mango \
+    --bridge br0 \
+    --ip 192.168.1.163 \
+    --mask 255.255.255.0 \
+    --net 192.168.1.0 \
+    --bcast 192.168.1.255 \
+    --gw 192.168.1.1 \
+    --dns 8.8.8.8 \
+    --components main,restricted,universe \
+    --addpkg acpid \
+    --addpkg openssh-server \
+    --addpkg nano \
+    --addpkg locales \
+    --addpkg linux-image-generic \
+    --libvirt qemu:///system ;

@@ -1,0 +1,18 @@
+processor	: 0
+vendor_id	: CentaurHauls
+cpu family	: 6
+model		: 15
+model name	: VIA Nano processor U2250@1300+MHz
+stepping	: 2
+cpu MHz		: 1200.000
+cache size	: 1024 KB
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat clflush acpi mmx fxsr sse sse2 ss tm pbe syscall fxsr_opt rdtscp lm constant_tsc up rep_good pni monitor est tm2 ssse3 cx16 xtpr rng rng_en ace ace_en ace2 phe phe_en lahf_lm
+bogomips	: 3192.02
+clflush size	: 64
+cache_alignment	: 128
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
