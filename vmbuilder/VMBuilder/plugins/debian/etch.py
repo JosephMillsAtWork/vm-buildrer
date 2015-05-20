@@ -1,7 +1,4 @@
 #
-#    Uncomplicated VM Builder
-#    Copyright (C) 2007-2010 Canonical Ltd.
-#
 #    See AUTHORS for list of contributors
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -27,17 +24,18 @@ from   VMBuilder.util import run_cmd
 from   VMBuilder.exception import VMBuilderException
 
 class Etch(suite.Suite):
-    updategrub = "/sbin/update-grub"
-    grubroot = "/lib/grub"
+    updategrub = "/usr/sbin/update-grub"
+    grubroot = "/usr/lib/grub"
     valid_flavours = { 'i386' :  ['386', '686', '686-smp', 'k7', 'k7-smp', 'server', 'server-bigiron'],
                        'amd64' : ['amd64-generic', 'amd64-k8', 'amd64-k8-smp', 'amd64-server', 'amd64-xeon']}
-    default_flavour = { 'i386' : 'server', 'amd64' : 'amd64-server' }
+    default_flavour = { 'i386' : '686-pae', 'amd64' : 'amd64' }
     disk_prefix = 'hd'
     xen_kernel_flavour = None
     virtio_net = False
     chpasswd_cmd = [ 'chpasswd', '--md5' ]
     preferred_filesystem = 'ext3'
-
+    kernel_version = "3.2.68-1"
+    
     def pre_install(self):
         pass
 
@@ -156,7 +154,8 @@ class Etch(suite.Suite):
     def kernel_name(self):
         flavour = self.context.get_setting('flavour')
         arch = self.context.get_setting('arch')
-        return 'linux-image-%s' % (flavour or self.default_flavour[arch],)
+        #return 'linux-image-%s-' % (flavour or self.default_flavour[arch],)
+        return 'linux-image-%s-%s' % (self.kernel_version, flavour or self.default_flavour[arch],)
 
     def config_host_and_domainname(self):
         hostname = self.context.get_setting('hostname')
@@ -253,11 +252,11 @@ class Etch(suite.Suite):
 
     def debootstrap(self):
         arch = self.context.get_setting('arch')
-	if arch = 'armhf':
-	cmd = ['/usr/sbin/debootstrap', '--foreign --arch=%s' % arch]
+        if arch == 'armhf':
+	  cmd = ['/usr/sbin/debootstrap','--foreign', '--arch=%s' % arch]
 	else:
-        cmd = ['/usr/sbin/debootstrap', '--arch=%s' % arch]
-
+	  cmd = ['/usr/sbin/debootstrap', '--arch=%s' % arch]
+        
         variant = self.context.get_setting('variant')
         if variant:
             cmd += ['--variant=%s' % variant]

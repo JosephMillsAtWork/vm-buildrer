@@ -1,0 +1,10 @@
+To build this package, just type:
+$ bzr-buildpackage
+or 
+$ bzr-buildpackage -S
+(to build the source)
+
+It will automatically get the right tarball or bzr version
+from the watch file or the branch and also update vcsversion.py.
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>, Tue, 16 Aug 2011 15:41:23 +0200

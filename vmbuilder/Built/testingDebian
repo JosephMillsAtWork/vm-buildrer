@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo ../debian-vm-builder --debug -v kvm stretch \
+sudo ../debian-vm-builder --debug -v kvm jessie \
     --domain debianS.com \
     --dest debianS.com \
     --hostname debianS.com \

@@ -1,0 +1,734 @@
+vm-builder (0.12.4+bzr489-0ubuntu2) trusty; urgency=medium
+
+  * Re-introduce ort to dh_python2.
+  * Mark myself as the maintainer.
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Tue, 04 Mar 2014 16:47:22 -0600
+
+vm-builder (0.12.4+bzr489-0ubuntu1) trusty; urgency=medium
+
+  * Add trusty to list of releases
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Tue, 04 Mar 2014 16:35:24 -0600
+
+vm-builder (0.12.4+bzr488-0ubuntu2) trusty; urgency=medium
+
+  * Port to dh_python2.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Sun, 26 Jan 2014 23:29:43 +0000
+
+vm-builder (0.12.4+bzr488-0ubuntu1) saucy; urgency=low
+
+  * Incorporate fix to specify macaddr when using bridge (LP: #392097)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Mon, 24 Jun 2013 14:40:27 -0500
+
+vm-builder (0.12.4+bzr487-0ubuntu1) saucy; urgency=low
+
+  * Add raring and saucy to valid ubuntu suites. (LP: #1174148)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Mon, 29 Apr 2013 11:13:08 -0500
+
+vm-builder (0.12.4+bzr482-0ubuntu1) raring; urgency=low
+
+  * Merge from ~rmurri/vmbuilder/bug-1080744 (LP: #1080744)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Fri, 23 Nov 2012 15:00:10 -0600
+
+vm-builder (0.12.4+bzr481-0ubuntu1) quantal; urgency=low
+
+  [ Yoann Dubreuil ]
+  * Fix proxy support: set up apt proxies before writing sources.list.
+    (LP: #966944)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Mon, 06 Aug 2012 14:39:54 -0500
+
+vm-builder (0.12.4+bzr480-0ubuntu1) quantal; urgency=low
+
+  * Patch from Alex Dehnert (adehnert) to fix tmpfs unmounting failure
+    (LP: #1008225)
+  * From Scott Moser: fix vmbuilder --version output (LP: #1003230)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Mon, 23 Jul 2012 23:10:58 -0500
+
+vm-builder (0.12.4+bzr478-0ubuntu1) quantal; urgency=low
+
+  * add support for building quantal VMs
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Mon, 30 Apr 2012 21:00:52 -0500
+
+vm-builder (0.12.4+bzr477-0ubuntu1) precise; urgency=low
+
+  [louis-bouchard]
+  * Rollback of previous patch for LP: #531599 with additional fix for
+    regression reported by LP: #911704. Issue reported in LP: #531599 has
+    been re-tested as well as #911704.  (LP: #531599) (LP: #911704)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Wed, 25 Jan 2012 10:54:49 -0600
+
+vm-builder (0.12.4+bzr476-0ubuntu1) precise; urgency=low
+
+  [rubiojr]
+  * Drop extraneous 'p' before partition number. (LP: #911704)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Wed, 18 Jan 2012 15:52:37 -0600
+
+vm-builder (0.12.4+bzr475-0ubuntu1) precise; urgency=low
+
+  [ Louis Bouchard ]
+  * Remove dev maps created by parted.  (LP: #531599)
+
+  [ Serge Hallyn ]
+  * pre-hook to create vcsversion.py is failing, work around it.
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Thu, 22 Dec 2011 09:18:12 -0600
+
+vm-builder (0.12.4+bzr471-0ubuntu2) precise; urgency=low
+
+  [ Daniel Holbert ]
+  * Fix warning messages when --part is given a nonexistent file.
+    (LP: #612082)
+
+ -- Barry Warsaw <barry@ubuntu.com>  Thu, 27 Oct 2011 15:52:56 -0400
+
+vm-builder (0.12.4+bzr471-0ubuntu1) precise; urgency=low
+
+  * add support for building precise VMs
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Wed, 19 Oct 2011 21:13:13 +0200
+
+vm-builder (0.12.4+bzr469-0ubuntu1) oneiric; urgency=low
+
+  * add support for building oneiric VMs
+  * debian/README.source:
+    - add text that explains that bzr-buildpackage is enough to build
+      it
+  * .bzr-builddeb/default.conf:
+    - generate the bzr version-info via a pre-build hook
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Tue, 16 Aug 2011 16:04:10 +0200
+
+vm-builder (0.12.4+bzr466-0ubuntu1) oneiric; urgency=low
+
+  * Fix from garo: If you provide a .partition file whose lines have < 4
+    elements, vmbuilder would incorrectly (since the 3d and 4th parameters
+    are optional) fail.  (LP: #784888)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Wed, 18 May 2011 18:10:20 -0500
+
+vm-builder (0.12.4+bzr465-0ubuntu1) oneiric; urgency=low
+
+  * Delays the execution of --execscript scripts until after just before the
+    chroot fs is unmounted. This allows the user to do customization to the VM
+    after all of its installation steps are complete, where currently, they
+    have no ability to customize kernel, grub, network and filesytems mounts
+    from their execscript.  (LP: #782007)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Tue, 17 May 2011 07:09:42 -0500
+
+vm-builder (0.12.4+bzr464-0ubuntu1) natty; urgency=low
+
+  * Merge from Neil Wilson:
+    sources.list.tmpl: Ensure that ppas only use the 'main' component.
+    (LP: #765648)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Tue, 19 Apr 2011 10:21:57 -0500
+
+vm-builder (0.12.4+bzr463-0ubuntu1) natty; urgency=low
+
+  * Add a fourth option to part file lines, which specifies the output
+    file name.  Thanks to Kieran Evans for the patch.  (LP: #688213)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Fri, 04 Mar 2011 09:13:15 -0600
+
+vm-builder (0.12.4+bzr462-0ubuntu1) natty; urgency=low
+
+  * Generate /etc/hostname and /etc/hosts at image build rather than bootstrap,
+    and add a --chroot-dir option to allow user to specify a directory name for
+    chroot.  Thanks to Radosław Kintzi for the patch. (LP: #592252)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Fri, 14 Jan 2011 14:38:10 -0600
+
+vm-builder (0.12.4+bzr461) natty; urgency=low
+
+  * Merge fix from Neil Wilson <neil@brightbox.co.uk>:
+    Fix to exclude first cylinder (sectors 0-62) from partition for the
+    benefit of grub.
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Wed, 15 Dec 2010 15:21:34 -0600
+
+vm-builder (0.12.4+bzr460) natty; urgency=low
+
+  * clean up on failure to unmount and release loop devices (lp: #685258)
+
+ -- Serge Hallyn <serge.hallyn@ubuntu.com>  Thu, 14 Dec 2010 12:28:21 -0600
+
+vm-builder (0.12.4+bzr459-0ubuntu1) natty; urgency=low
+
+  * debian/patches/*:
+    - dropped, all in vmbuilder bzr trunk now
+  * new bzr snapshot
+    - fixes tmpfs option (lp: #536940)
+    - fixes crash in register_options (lp: #580237)
+    - fixes version display (lp: #546536)
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Thu, 02 Dec 2010 11:19:30 +0100
+
+vm-builder (0.12.4-0ubuntu3) natty; urgency=low
+
+  * debian/patches/0003-bzr-add-natty-branch.patch:
+    - "merged" lp:~mvo/vmbuilder/add-natty that adds support for
+      creating maverick and natty VMs (LP: #676132)
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Tue, 16 Nov 2010 17:41:54 +0100
+
+vm-builder (0.12.4-0ubuntu2) natty; urgency=low
+
+  * 0002-fix-dapper-locales.patch: fix to allow creation of Dapper VMs again
+    - LP: #665231
+
+ -- Jamie Strandboge <jamie@ubuntu.com>  Fri, 22 Oct 2010 11:59:02 -0500
+
+vm-builder (0.12.4-0ubuntu1.1) maverick-proposed; urgency=low
+
+  * debian/patches/0001-lp659532.patch: supply disk format in libvirt XML
+    for converted disks otherwise non-raw disks (eg, 'qcow2', the default in
+    vm-builder) won't show up in the guest with libvirt 0.8.3 and newer
+    - LP: #659532
+
+ -- Jamie Strandboge <jamie@ubuntu.com>  Tue, 12 Oct 2010 17:21:56 -0500
+
+vm-builder (0.12.4-0ubuntu1) maverick; urgency=low
+
+  * New upstream, bugfix release. (LP: #539460, #536942, #535397,
+    #550689, #410521, #550691, others)
+
+ -- Soren Hansen <soren@ubuntu.com>  Fri, 09 Jul 2010 22:58:32 +0200
+
+vm-builder (0.12.3-0ubuntu1) lucid; urgency=low
+
+  * New upstream bugfix release. (LP: #530331, #531409, #460398, #538674,
+    #550666, possibly others)
+
+ -- Soren Hansen <soren@ubuntu.com>  Mon, 29 Mar 2010 22:22:49 -0500
+
+vm-builder (0.12.2-0ubuntu4) lucid; urgency=low
+
+  * Install the ubuntu-vm-builder man page because we still install
+    ubuntu-vm-builder. (LP: #432481)
+
+ -- Robert Collins <robert@ubuntu.com>  Thu, 25 Mar 2010 11:33:05 +1100
+
+vm-builder (0.12.2-0ubuntu3) lucid; urgency=low
+
+  * Re-add quilt patch series.
+  * New patch, locale-preflight-check, drops locale-gen preflight_check() call
+    which might remove all locales from the *host*; LP: #527381.
+
+ -- Loïc Minier <loic.minier@ubuntu.com>  Mon, 01 Mar 2010 10:50:05 +0100
+
+vm-builder (0.12.2-0ubuntu2) lucid; urgency=low
+
+  * Add missing plugins to package. (LP: #529618)
+
+ -- Soren Hansen <soren@ubuntu.com>  Sun, 28 Feb 2010 21:43:14 +0100
+
+vm-builder (0.12.2-0ubuntu1) lucid; urgency=low
+
+  * New upstream, bugfix-only release. (LP: #528027, #260682)
+
+ -- Soren Hansen <soren@ubuntu.com>  Fri, 26 Feb 2010 22:20:39 +0100
+
+vm-builder (0.12.1-0ubuntu1) lucid; urgency=low
+
+  * New upstream, bugfix-only release. (LP: #303882, #523589, #261702,
+    #284620, #527240, #527253)
+
+ -- Soren Hansen <soren@ubuntu.com>  Wed, 24 Feb 2010 23:52:03 +0100
+
+vm-builder (0.12.0-0ubuntu1) lucid; urgency=low
+
+  * New upstream release. (FFe: LP: #525741)
+    - All patches incorporated upstream.
+
+ -- Soren Hansen <soren@ubuntu.com>  Mon, 22 Feb 2010 13:56:18 +0100
+
+vm-builder (0.11.3-0ubuntu9) lucid; urgency=low
+
+  * debian/patches/ext4-support.diff: fix missing chunk in ext4 support.
+
+ -- Kees Cook <kees@ubuntu.com>  Tue, 16 Feb 2010 15:23:37 -0800
+
+vm-builder (0.11.3-0ubuntu8) lucid; urgency=low
+
+  * debian/patches/ext4-support.diff: add ext4 (upstream commit
+    lp:vmbuilder/0.11 r364, LP: #494804)
+  * debian/patches/lucid-release.diff: add Ubuntu Lucid to the list of
+    buildable distros.
+
+ -- Kees Cook <kees@ubuntu.com>  Tue, 16 Feb 2010 13:54:30 -0800
+
+vm-builder (0.11.3-0ubuntu7) lucid; urgency=low
+
+  * debian/python-vm-builder.py, debian/python-vm-builder.py,
+    debian/ubuntu-vm-builder.install: Install apport hooks, apart
+    of the server-lucid-apport-hooks specification. 
+
+ -- Chuck Short <zulcss@ubuntu.com>  Tue, 02 Feb 2010 14:15:31 -0500
+
+vm-builder (0.11.3-0ubuntu6) lucid; urgency=low
+
+  * Fix "network" patch to use "#if" instead of "if"; introduced in
+    0.11.3-0ubuntu2.
+
+ -- Loïc Minier <loic.minier@ubuntu.com>  Thu, 21 Jan 2010 16:33:52 +0100
+
+vm-builder (0.11.3-0ubuntu5) lucid; urgency=low
+
+  * Drop grub dependency; vm-builder was actually fixed to install grub in the
+    guest instead while I wasn't looking; sorry for the confusion.
+
+ -- Loïc Minier <loic.minier@ubuntu.com>  Tue, 19 Jan 2010 13:28:41 +0100
+
+vm-builder (0.11.3-0ubuntu4) lucid; urgency=low
+
+  * Add Karmic in description; thanks Daniele E. Domenichelli; LP: #485065.
+
+ -- Loïc Minier <loic.minier@ubuntu.com>  Sun, 17 Jan 2010 22:41:27 +0100
+
+vm-builder (0.11.3-0ubuntu3) lucid; urgency=low
+
+  * New patch, ssk-key-type-error, add parentheses as operator priority caused
+    a TypeError in the format string of the user chown call in the
+    install_authorized_keys() function; LP: #436835.
+  * Add rsync dependency; LP: #314833.
+  * Wrap build-deps and deps to get cleaner diffs.
+  * Use Priority: optional.
+  * Use launchpad.net/vmbuilder instead of code.l.n in copyright.
+  * Downgrade devscripts dep to a Recommends as I believe this is only needed
+    for rmadison in a Xen specific codepath, and it's rather heavy to install
+    devscripts on servers; this needs to be confirmed though.
+  * Depend on grub (legacy) as this is currently a hard requirement;
+    LP: #331595.
+  * Depend on qemu-kvm | qemu-kvm-extras instead of kvm | qemu as these are
+    transitional packages nowadays.
+  * New patch, ip-mask-typo, fixes typo in IP mask handling; LP: #313575; from
+    r355.
+  * Build-dep on python-all, not python-all-dev.
+  * Bump up Standards-Version to 3.8.3.
+  * Change Vcs-Bzr to XS-Upstream-Vcs-Bzr as the packaging is not kept in Bzr.
+  * Add watch file.
+  * Remove leftover VMBuilder/vcsversion.py.debdiff.
+  * Move changes from 0.10-0ubuntu2 to sleep a little to leave a chance to
+    loop devices to settle down to a new patch, settle-down-disk.
+
+ -- Loïc Minier <loic.minier@ubuntu.com>  Sun, 17 Jan 2010 21:21:38 +0100
+
+vm-builder (0.11.3-0ubuntu2) lucid; urgency=low
+
+  * network.diff:
+    - allows the user to specify which virtual network the built VM is connected to (LP: #351509)
+
+ -- Nigel Babu <nigelbabu@gmail.com>  Wed, 09 Dec 2009 04:17:37 +0530
+
+vm-builder (0.11.3-0ubuntu1) karmic; urgency=low
+
+  * New upstream (bugfix only) release. (LP: #458587)
+
+ -- Soren Hansen <soren@ubuntu.com>  Fri, 23 Oct 2009 00:14:13 +0200
+
+vm-builder (0.11.2-0ubuntu1) karmic; urgency=low
+
+  * New upstream (bugfix-only) release. (LP: #410886, #439868, #426438, #429169, #423497)
+
+ -- Soren Hansen <soren@ubuntu.com>  Thu, 22 Oct 2009 15:07:36 +0200
+
+vm-builder (0.11.1-0ubuntu1) karmic; urgency=low
+
+  * New upstream release.
+  * Replace cdbs patchsys with quilt.
+  * All patches incorporated upstream.
+
+ -- Soren Hansen <soren@ubuntu.com>  Tue, 22 Sep 2009 13:09:50 +0200
+
+vm-builder (0.11-0ubuntu2) karmic; urgency=low
+
+  * Add simple-patchsys.
+  * Drop Vcs-Bzr as the repo doesn't include packaging.
+  * New patch, 60_blkid_support, allows blkid and not only vol_id as the
+    latter is gone in karmic; from r316; LP: #395950.
+  * New patch, 61_ec2-exception, allow creating VMs when the EC2 plugin isn't
+    used; from r324; LP: #403216.
+  * New patch, 62_parted-swap-syntax, fixed creation of swap partition with
+    new parted syntax; thanks Dominic Evans; from the debdiff in LP #403216.
+  * Add ${misc:Depends} to Depends.
+
+ -- Loïc Minier <loic.minier@ubuntu.com>  Thu, 30 Jul 2009 19:54:46 +0200
+
+vm-builder (0.11-0ubuntu1) karmic; urgency=low
+
+  * New upstream release.
+
+ -- Soren Hansen <soren@ubuntu.com>  Tue, 09 Jun 2009 10:10:54 +0200
+
+vm-builder (0.10-0ubuntu2) jaunty; urgency=low
+
+  * fix traceback due to kpartx failure (LP: #342359)
+    - VMBuilder/disk.py: sleep a few seconds to give the loopback devices
+      a chance to settle down, then try to unmount. If it fails, try a few
+      more times and if still fails, error out as before
+  * fix FTBFS due to python2.6 transition (LP: #354849)
+    - debian/python-vm-builder-ec2.install: use python2.6/dist-packages path
+    - debian/python-vm-builder.install: use python2.6/dist-packages path
+
+ -- Jamie Strandboge <jamie@ubuntu.com>  Fri, 10 Apr 2009 10:23:19 -0500
+
+vm-builder (0.10-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release.
+
+ -- Soren Hansen <soren@ubuntu.com>  Thu, 19 Feb 2009 00:28:02 +0100
+
+vm-builder (0.9-0ubuntu6) UNRELEASED; urgency=low
+
+  [ Jamie Strandboge ]
+  * fix creation of Dapper VMs (LP: #305186) by moving existing
+    copy_settings() from plugins/ubuntu/dapper.py to plugins/ubuntu/edgy.py
+    and creating a Dapper specific copy_settings(). This was introduced in
+    fix for (LP: #292573).
+
+  [ Michael Vogt ]
+  * when --ssh-key is given, install openssh-server
+
+ -- Jamie Strandboge <jamie@ubuntu.com>  Thu, 04 Dec 2008 08:48:39 -0600
+
+vm-builder (0.9-0ubuntu5) jaunty; urgency=low
+
+  * add Jaunty support 
+
+ -- Jamie Strandboge <jamie@ubuntu.com>  Wed, 03 Dec 2008 17:41:12 -0600
+
+vm-builder (0.9-0ubuntu4) jaunty; urgency=low
+
+  [ Nicolas Barcet ]
+  * Integrate ec2 postinstall script
+  * Add --install-mirror to fix LP: #291639
+  * Implement --iso to fix LP: #291590
+  * Install openssh-server cleanly LP: #293039
+  * Xen kernel and ramdisk are now dynamically discovered rather than
+    hard coded
+  * Add --xen-kernel and --xen-ramdisk to override automatic discovery
+  * Add --net-virtio and --net-bridge option to libvirt plugin
+  * The libvirt plugin now errors out if used with something else than KVM, as
+    nothing else is supported yet.
+  * For FSIMAGE type file system, --part now accepts a third argument which
+    allows to specify the device the partition should be mapped to. If the
+    size is set to 0, it is considered a "dummy" partition that should not be
+    created, only added to fstab.
+  
+  [ Chuck Short ]
+  * Add retry option when uploading to Amazon
+  * Install server and standard seed by default
+  * Add ec2 examples for first login and first boot
+  
+  [ Eric Hammond ]
+  * Fix post_install bugs LP: #292888, LP: #292891 & LP: #292901
+  * Fix regression on locale settings LP: #292573
+
+ -- Soren Hansen <soren@ubuntu.com>  Mon, 01 Dec 2008 10:31:35 +0100
+
+vm-builder (0.9-0ubuntu3.1) intrepid-security; urgency=low
+
+  * SECURITY UPDATE: vm-builder creates predictable root password when
+    creating virtual machines (LP: #296841)
+    - VMBuilder/plugins/ubuntu/dapper.py: invoke chpasswd with '-e'
+    - CVE-2008-XXXX (to be filled in)
+
+ -- Jamie Strandboge <jamie@ubuntu.com>  Tue, 11 Nov 2008 16:05:56 -0600
+
+vm-builder (0.9-0ubuntu3) intrepid; urgency=low
+
+  [ Johan Euphrosine ]
+  * Fix exception when suite provided does not exist (LP: #281801) 
+    and provide unit test for it.
+
+  [ Chuck Short ]
+  * Added parameters required for EC2 plugin.
+  * Use ec2_name instead of hostname when submitting an AMI.
+  * Update xen_kernel_path and xen_ramdisk_path for intrepid.
+  * Default to amazon kernels/ramdisk pairs for now.
+  * Split out ec2 module into its own package. (LP: #284762)
+
+  [ Nicolas Barcet ]
+  * Error out if domain is undefined (LP: #280125)
+  * Fix --dest so that it is actually used now (LP: #280091)
+  * Fix -c handling, values are now used (LP: #279159)
+  * Create /var/run/network to fix bug LP: #276365
+  * Handle fsimage type vms (Xen) in fstab and (hopefully) libvirt  (LP: #282109)
+  * Components where not parsed correctly (LP: #283263)
+  * preflight_check() was called twice in a row in vm.py for no aparant
+    reasons
+  * Change default suite to intrepid
+  * Intrepid needs groot=uuid, else update-grub tries to outsmart us later on
+    and it won't boot as it cannot guess the uuid right.
+  * Couple fixes when calling devletters, which is a function
+  * Double parenthesis removed in devicemap.tmpl
+  * Added function isDomain to fix bug LP: #284746
+  * Documented unusual conf name value in help to fix bug LP: #284614
+  * Fixed a bug in set_defaults occuring on reading untyped value from the
+    configuration file
+  * Match ec2 vocabulary by adding option name and clarifying help 
+    (LP: #284765, LP: #285170, LP: #285165)
+  * Added a check for xen hypervisor when ec2 is selected (LP: #285191)
+  * Added checks for presence of bucket, access key and secret key for ec2 
+    (LP: #284757)
+  * Older suite need 128 bit inode for grub to recognize os. Thanks to Albert
+    Damen for the pointer (LP: #285093)
+  * The libvirt plugin now errors out if used with something else than KVM, as
+    nothing else is supported yet.
+  * Write out disk info in vmware's .vmx, converting it to use template while
+    at it (LP: #286487)
+  * Add 'config.version = "8"' to vmware.tmpl to fix LP: #286531
+
+  [ Mathias Gug ]
+  * Fix --templates option.
+
+  [ Soren Hansen ]
+  * Create /var/{run,lock} on the root filesystem, just like d-i.
+
+ -- Soren Hansen <soren@ubuntu.com>  Fri, 24 Oct 2008 13:15:23 +0200
+
+vm-builder (0.9-0ubuntu2) intrepid; urgency=low
+
+  [ Nicolas Barcet ]
+  * Added hint for more help (LP: #269323)
+  * Added firstscripts plugin to fix regression on --firstboot and --firstlogin (LP: #268957)
+  * Added postinst plugin to fix regression on --exec and add --copy (LP: #268955) 
+  * Added man page.
+
+  [ Soren Hansen ]
+  * Include ubuntu-vm-builder package. (LP: #277272)
+  * Read additional config file given by '-c'. (LP: #276813)
+  * Fix regression from ubuntu-vm-builder: Make output from subprocess
+    non-buffered.
+  * Let --overwrite apply for libvirt as well. (LP: #276322)
+
+ -- Soren Hansen <soren@ubuntu.com>  Fri, 03 Oct 2008 18:52:06 +0200
+
+vm-builder (0.9-0ubuntu1) intrepid; urgency=low
+
+  [Nicolas Barcet <nicolas.barcet@ubuntu.com>]
+  * Fixed regression on --ip and friends (LP: #268920)
+  * Added missing dependancy on dpkg-dev (LP: #270324)
+  * Fixed regression on --part (LP: #268718)
+  
+ -- Soren Hansen <soren@ubuntu.com>  Wed, 24 Sep 2008 09:58:35 +0200
+
+vm-builder (0.8.1-0ubuntu3) intrepid; urgency=low
+
+  [Soren Hansen <soren@ubuntu.com>]
+  * Re-add VMWare support. (LP: #268140) 
+  * Fixed sources.list generation for Ubuntu. (LP: #268155)
+  * Added configuration file handling. (LP: #268170)
+  * Fix up Xen support (device and configuration file creation). (LP: #268142)
+
+ -- Soren Hansen <soren@ubuntu.com>  Tue, 09 Sep 2008 17:01:02 +0200
+
+vm-builder (0.8.1-0ubuntu2) intrepid; urgency=low
+
+  * Apply patch to only conditionally import libvirt. Fixes FTBFS.
+
+ -- Soren Hansen <soren@ubuntu.com>  Thu, 04 Sep 2008 09:50:27 +0200
+
+vm-builder (0.8.1-0ubuntu1) intrepid; urgency=low
+
+  * Added lots of inline documentation.
+  * Build documentation using epydoc.
+  * Moved libvirt support to a separate plugin. (LP: #264605)
+  * Deploy directly to libvirt (regression from ubuntu-vm-builder). (LP: #264604)
+  * Updated debian/{copyright,control} to reflect move on Launchpad.
+  * No longer a native package.
+
+ -- Soren Hansen <soren@ubuntu.com>  Thu, 04 Sep 2008 09:33:29 +0200
+
+vm-builder (0.8) intrepid; urgency=low
+
+  * Rewrote the entire thing in Python.
+
+ -- Soren Hansen <soren@ubuntu.com>  Sat, 05 Jul 2008 00:23:20 +0200
+
+ubuntu-vm-builder (0.7~ppa2) intrepid; urgency=low
+
+  [Thierry Carrez]
+  * Patch to fix lilo prompt (fix LP: #206763)
+  
+  [Loic Minier]
+  * Add support for "security mirror"; --security-mirror flag, SECURITY_MIRROR
+    config; defaults to security.u.c/ubuntu for official arches and to
+    ports.ubuntu.com/ubuntu-ports for lpia.
+ 
+  [Nicolas Barcet]
+  * Merge --in-place option from Hardy.
+  * Fix case when domain is not defined on the host, thanks to Thierry Carrez
+    (LP: #237580)
+  * Fix console-setup the good way (by copying /etc/console-setup) thanks
+    again to Thierry Carrez (LP: #237616)
+  * Fix config-handler to not break with --arch option
+  * Change config handler to use default and etc configurations as well
+  * Make VMHOSTNAME more meaningfull by default
+
+ -- Nicolas Barcet <nicolas.barcet@ubuntu.com>  Tue, 18 Jun 2008 18:59:18 +0200
+
+ubuntu-vm-builder (0.7~ppa1) intrepid; urgency=low
+
+  [Michael Vogt]
+  * Add Intrepid to the suites
+
+  [Loic Minier]
+  * Fix unchecked usage of $SUDO_USER which might be unset when creating the
+    configuration.
+  * Set LIBVIRT URL to the empty string if it isn't set in the env.
+
+  [Nick Barcet]
+  * Added -c option to specify an alternate configuration file
+
+ -- Nicolas Barcet <nicolas.barcet@ubuntu.com>  Fri, 31 May 2008 00:14:00 +0200
+
+ubuntu-vm-builder (0.4-0ubuntu0.3) hardy-proposed; urgency=low
+
+  * Add --in-place option that will allow ubuntu-vm-builder to function when
+    $TMPDIR is nodev and/or nosuid. (LP: #228744)
+
+ -- Soren Hansen <soren@ubuntu.com>  Tue, 03 Jun 2008 14:43:51 +0200
+
+ubuntu-vm-builder (0.6) intrepid; urgency=low
+
+  * Release into Ubuntu proper.
+
+ -- Soren Hansen <soren@ubuntu.com>  Wed, 28 May 2008 11:36:02 +0200
+
+ubuntu-vm-builder (0.5ubuntu1~ppa4) intrepid; urgency=low
+
+  [Loic Minier]
+  * Call sh -c "$EXEC_SCRIPT" instead of "$EXEC_SCRIPT"; allows to pass
+    arguments to the script; also remove check that EXEC_SCRIPT exists.
+
+  [Nick Barcet]
+  * Adding an error handler to fix LP: #217950
+  * Lots of sanitization to allow for error handler
+  * Add an interrupt handler to cleanup if user interrupts script
+  * Stop on error in user script to fix LP: #228675
+  * --ssh-key adds key to root and --ssh-user-key adds key to user
+  * Added --raw option to install on raw devices/files.
+    WARNING: the variables used in template files for disk definition have been
+    modified.  Please insure that locally created templates are updated to
+    reflect this change. 
+  * Add --firstboot and --firstlogin options
+  * First login always execute "sudo dpkg-reconfigure console-setup" so
+    that the local keyboard setting is taken into account.
+  * Adding the --iso parameter to create image from an iso. This requires
+    suite and kernel-flavour parameters to match what is available on the iso,
+    obviously.
+  * Include hostname in default destination directory if defined
+  * Do not use a tmpfs by default anymore
+  * Place the working directory in the same directory as dest if using --tmp -
+  * Added --tmpfs option to specify usage of a tmpfs for the working directory 
+  * VM specific parameters do not need to be the last ones anymore
+  * Unknown parameters now return an error and prints usage
+  * Added --overwrite for overwriting of destination directory and libvirt
+    domain
+  * Added ~/.ubuntu-vm-builder config handling
+  * Man page improvements and reorganization
+
+  [Soren Hansen]
+  * Fix for LP: #234062 ssh root login broken
+
+ -- Nicolas Barcet <nicolas.barcet@canonical.com>  Fri, 26 May 2008 00:01:00 +0200
+
+ubuntu-vm-builder (0.4ubuntu2~ppa7) hardy; urgency=low
+
+  [ Michael Vogt ]
+  * patch the way do_avoid_starting_daemons() to write a policy-rc.d file in
+    the same way as pbuilder does (LP: #228372)
+
+  [ Nick Barcet ]
+  * Added function do_copy_settings to fix bug LP: #221231
+  * Fix missing ipv6 entries in host file (LP: #230299)
+  * Fix issue with template arguments fetching (LP: #228268)
+  * Create the /etc/apt/sources.list properly (LP: #218195)
+  * Use a tmpfs for $WORKINGDIR to avoid case when file system is mounted
+    with no suid (LP: #228744)
+  * Unproper letters variable initialization (LP: #230312)
+  * Option --net failed other than for Class C (LP: #232361)
+
+  [ Loic Minier ]
+  * Fix v / --verbose getopt parsing. (LP: #230319)
+  * Compute the default ARCH with dpkg --print-architecture. (LP: #230323)
+  * Add support for lpia.
+    - Allow lpia arch, lpia and lpiacompat kernel flavours.
+    - Use http://ports.ubuntu.com/ubuntu-ports as default mirror for lpia.
+    - Update help/documentation.
+  * Check Release files against the archive keyring; depend on ubuntu-keyring.
+    (LP: #230334)
+
+  [ Soren Hansen ]
+  * Fix root ssh login. (LP: #234062)
+  * Fix network address handling. (LP: #232361) Thanks to Kevin Traas
+    for the patch.
+
+ -- Soren Hansen <soren@ubuntu.com>  Fri, 23 May 2008 09:52:22 +0200
+
+ubuntu-vm-builder (0.4-0ubuntu0.1) hardy-security; urgency=low
+
+  * SECURITY UPDATE: adjust ubuntu-vm-builder to lock root account by default
+
+ -- Nicolas Barcet <nicolas.barcet@canonical.com>  Mon, 28 Apr 2008 14:02:01 +0200
+
+ubuntu-vm-builder (0.4) hardy; urgency=low
+
+  [ Soren Hansen ]
+  * FFe reference: (LP: #208161)
+  * Replace start-stop-daemon for a while to fix problems with daemons
+    expecting to be able to listen on certaing ports, etc.
+  * Unmount volatile tmpfs from lrm.
+  * Make /opt opt-in.
+  * Make default rootsize 4096 (to match documentation).
+  * New grub installer code.
+  * Fix syntax error in kernel flavour check.
+  * Massive refactoring.
+  * Make more intelligent default choices based on chosen suite, architecture,
+    kernel flavour, etc.
+  * Further quieting of the process.
+
+  [ Nick Barcet ]
+  * Added template support for vmware and qemu/kvm.
+  * Fix a bug reported by soren where loop devices could accendentally be
+    overwritten.  Was also preventing concurrent runs of the script.
+  * Further quieting of the process.
+
+ -- Soren Hansen <soren@ubuntu.com>  Wed, 02 Apr 2008 11:52:35 +0200
+
+ubuntu-vm-builder (0.3) hardy; urgency=low
+
+  * Fix perl locale warnings.
+  * Add missing --libvirt option. (LP: #194242)
+  * Add edgy to the list of supported distros (adding the appropriate quirks).
+  * Don't default to virtual kernel flavour when not installing i386. (LP:
+    #194240)
+  * Remove references to JeOS. (LP: #194233)
+  * Give more useful error messages when people pass unuseful options.
+  * Make the building process much less verbose (and hence less scary).
+
+ -- Soren Hansen <soren@ubuntu.com>  Wed, 12 Mar 2008 01:01:35 +0100
+
+ubuntu-vm-builder (0.2) hardy; urgency=low
+
+  * New release.
+
+ -- Soren Hansen <soren@ubuntu.com>  Thu, 21 Feb 2008 00:34:20 +0100
+
+ubuntu-vm-builder (0.1) hardy; urgency=low
+
+  * Initial upload to Ubuntu.
+
+ -- Soren Hansen <soren@ubuntu.com>  Thu, 14 Feb 2008 15:41:51 +0100

@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+DEB_PYTHON2_MODULE_PACKAGES:=ubuntu-vm-builder python-vm-builder python-vm-builder-ec2
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/rules/patchsys-quilt.mk
+include /usr/share/cdbs/1/class/python-distutils.mk
+
+# For when we add the extra package
+#DEB_DH_INSTALL_SOURCEDIR = debian/tmp
+
+#makebuilddir/python-vm-builder::
+#	if test -d .bzr; then if ! bzr diff -q > /dev/null; then echo 'ERROR! Uncommitted changes!!!' ; /bin/false ; fi; fi
+
+build/python-vm-builder:: doc-stamp
+
+doc-stamp:
+	epydoc --no-private VMBuilder
+	touch $@
+
+cleanbuilddir/python-vm-builder::
+	rm -rf html doc-stamp
